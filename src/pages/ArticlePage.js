@@ -1,5 +1,6 @@
-import { parsePath, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import articles from './article-content';
+import { NotFoundPage } from './NotFoundPage';
 
 export function ArticlePage () {
     // const params = useParams();
@@ -9,7 +10,12 @@ export function ArticlePage () {
     const article = articles.find( (articleItem) => {
         return articleItem.name === articleId;
     })
- 
+    
+    if (!article) {
+        return(
+            <NotFoundPage />
+        );
+    }
     return (
         <>
             <h1> {article.title} </h1>
