@@ -13,9 +13,9 @@ export function ArticlePage () {
     return (
         <>
             <h1> {article.title} </h1>
-            {article.content.map(paragraph => {
+            {article.content.map((paragraph, i) => {
                 return (
-                    <p> {paragraph} </p>
+                    <p key = {i}> {paragraph} </p>
                 );
             })}
         </>
